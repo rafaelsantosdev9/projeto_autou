@@ -42,7 +42,7 @@ def init_app(app):
                 if arquivo and extensoes_permitidas(arquivo.filename):
                     nome_arquivo = secure_filename(arquivo.filename)
                     caminho_arquivo = os.path.join('uploads', nome_arquivo)
-                    os.makedirs('uploads', exist_ok=True)
+                    os.makedirs('/tmp', exist_ok=True)
                     arquivo.save(caminho_arquivo)
 
                     if nome_arquivo.endswith('.pdf'):
