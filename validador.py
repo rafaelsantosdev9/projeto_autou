@@ -38,6 +38,6 @@ def tirar_texto_txt(arquivo):
         return f.read().strip()
 def analise_IA(texto):
     # IA do google
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-1.0-pro')
     resposta = model.generate_content(f'{PROMPT_IA}\n\n Texto do email: {texto}')
     return resposta.text.strip()
