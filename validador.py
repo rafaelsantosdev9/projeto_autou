@@ -37,7 +37,13 @@ def tirar_texto_txt(arquivo):
     with open(arquivo, 'r', encoding=result['encoding']) as f:
         return f.read().strip()
 def analise_IA(texto):
-    # IA do google
+    key = os.getenv("GEMINI_API_KEY")
+
+    if key:
+        print("KEY PREFIX:", key[:10])
+    else:
+        print("KEY NÃO ENCONTRADA")
+
     model = genai.GenerativeModel('gemini-2.5-flash')
     resposta = model.generate_content(f'{PROMPT_IA}\n\n Texto do email: {texto}')
     return resposta.text.strip()
